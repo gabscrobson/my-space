@@ -6,7 +6,10 @@ import AuthProvider from './lib/auth-provider'
 
 export const metadata: Metadata = {
   title: 'My Space',
-  description: 'My space clone',
+  description: 'My space clone with Next.js',
+  icons: {
+    icon: '/icon.png',
+  }
 }
 
 export default function RootLayout({
