@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Users } from "@phosphor-icons/react/dist/ssr";
 import { SignInButton, SignOutButton } from "./buttons";
 import { getServerSession } from "next-auth";
+import NavLinks from "./nav-links";
 
 export default async function NavMenu() {
   const session = await getServerSession()
@@ -17,15 +18,7 @@ export default async function NavMenu() {
           </div>
         </Link>
         <ul className="list-none flex items-center gap-5 transition-all">
-          <li className="border-b-2 border-transparent hover:border-white transition-colors">
-            <Link href="/about">About</Link>
-          </li>
-          <li className="border-b-2 border-transparent hover:border-white transition-colors">
-            <Link href="/blog">Blog</Link>
-          </li>
-          <li className="border-b-2 border-transparent hover:border-white transition-colors">
-            <Link href="/users">Users</Link>
-          </li>
+          <NavLinks />
           <li>
             <SignInButton />
           </li>
