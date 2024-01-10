@@ -8,15 +8,17 @@ interface Props {
   }
 }
 
+const APP_URL = process.env.APP_URL
+
 export async function generateStaticParams() {
-  const posts: Post[] = await fetch("http://localhost:3000/api/content").then((res) => res.json());
+  const posts: Post[] = await fetch(`http://${APP_URL}/api/content`).then((res) => res.json());
   return posts.map((post) => ({
      params: { slug: post.slug } 
   }));
 }
 
 export default async function Page({ params }: Props) {
-  const posts: Post[] = await fetch("http://localhost:3000/api/content").then((res) => res.json());
+  const posts: Post[] = await fetch(`http://${APP_URL}/api/content`).then((res) => res.json());
   const post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
