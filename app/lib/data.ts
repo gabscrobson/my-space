@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { unstable_noStore as noStore } from 'next/cache';
 
 const posts = [
   {
@@ -9,12 +10,12 @@ const posts = [
   {
     title: 'Post 2',
     slug: 'post-2',
-    content: 'This is not the content of post 2'
+    content: 'This is not the content of post two'
   },
   {
     title: 'Post 3',
     slug: 'post-3',
-    content: 'I dont want to write the content of post 3'
+    content: 'I dont want to write the content of post 4, oops 3'
   },
   {
     title: 'Post 4',
@@ -53,6 +54,6 @@ const posts = [
   }
 ]
 
-export async function GET() {
+export async function fetchPosts() {
   return NextResponse.json(posts)
 }
